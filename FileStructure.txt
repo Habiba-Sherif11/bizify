@@ -1,0 +1,696 @@
+src/
+│
+├── app/
+│   ├── (auth)/
+│   │   ├── layout.tsx
+│   │   ├── login/
+│   │   │   └── page.tsx                    ← UC_02
+│   │   ├── signup/
+│   │   │   └── page.tsx                    ← UC_01
+│   │   ├── forgot-password/
+│   │   │   └── page.tsx                    ← UC_04 step 1
+│   │   ├── verify-otp/
+│   │   │   └── page.tsx                    ← UC_04 step 2
+│   │   └── reset-password/
+│   │       └── page.tsx                    ← UC_04 step 3
+│   │
+│   ├── (main)/
+│   │   ├── layout.tsx
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   ├── onboarding/
+│   │   │   └── page.tsx                    ← UC_06, UC_07
+│   │   ├── invite/
+│   │   │   └── accept/
+│   │   │       └── page.tsx                ← UC_08
+│   │   ├── forbidden/
+│   │   │   └── page.tsx                    ← UC_05
+│   │   │
+│   │   │   ── MILESTONE 2 PAGES ──
+│   │   ├── concepts/
+│   │   │   └── page.tsx                    ← UC_10
+│   │   ├── concepts/[id]/
+│   │   │   └── page.tsx                    ← UC_10 detail
+│   │   ├── skills-gap/
+│   │   │   └── page.tsx                    ← UC_11
+│   │   ├── guide/
+│   │   │   └── page.tsx                    ← UC_12
+│   │   ├── team/
+│   │   │   └── page.tsx                    ← UC_13, UC_16, UC_17, UC_19
+│   │   ├── profile/
+│   │   │   └── page.tsx                    ← UC_14
+│   │   ├── notifications/
+│   │   │   └── page.tsx                    ← UC_15
+│   │   ├── export/
+│   │   │   └── page.tsx                    ← UC_18
+│   │   ├── settings/
+│   │   │   └── page.tsx                    ← UC_20
+│   │   │
+│   │   │   ── MILESTONE 3 PAGES ──
+│   │   ├── ideas/
+│   │   │   └── page.tsx                    ← UC_22, UC_27, UC_28, UC_29
+│   │   ├── ideas/[id]/
+│   │   │   └── page.tsx                    ← UC_24
+│   │   ├── ideas/archived/
+│   │   │   └── page.tsx                    ← UC_25, UC_26
+│   │   ├── ideas/compare/
+│   │   │   └── page.tsx                    ← UC_23
+│   │   ├── ideas/new/
+│   │   │   └── page.tsx                    ← UC_28, UC_29
+│   │   ├── marketplace/
+│   │   │   └── page.tsx                    ← UC_30
+│   │   ├── partner-dashboard/
+│   │   │   └── page.tsx                    ← UC_30
+│   │   │
+│   │   │   ── MILESTONE 4 PAGES ──
+│   │   ├── ideas/chatbot/
+│   │   │   └── page.tsx                    ← UC_32
+│   │   ├── business/[id]/
+│   │   │   └── page.tsx                    ← UC_33
+│   │   ├── business/[id]/roadmap/
+│   │   │   └── page.tsx                    ← UC_34
+│   │   ├── business/[id]/customer-research/
+│   │   │   └── page.tsx                    ← UC_35
+│   │   ├── business/[id]/personas/
+│   │   │   └── page.tsx                    ← UC_36
+│   │   ├── business/[id]/strategy/
+│   │   │   └── page.tsx                    ← UC_37
+│   │   ├── business/[id]/market-size/
+│   │   │   └── page.tsx                    ← UC_38
+│   │   ├── business/[id]/competitors/
+│   │   │   └── page.tsx                    ← UC_39
+│   │   ├── business/[id]/functions/
+│   │   │   └── page.tsx                    ← UC_40
+│   │   ├── business/[id]/unit-economics/
+│   │   │   └── page.tsx                    ← UC_41
+│   │   ├── business/[id]/legal-finance/
+│   │   │   └── page.tsx                    ← UC_42
+│   │   ├── business/[id]/mvp/
+│   │   │   └── page.tsx                    ← UC_43
+│   │   ├── business/[id]/branding/
+│   │   │   └── page.tsx                    ← UC_44
+│   │   ├── business/[id]/go-to-market/
+│   │   │   └── page.tsx                    ← UC_45
+│   │   ├── business/[id]/operations/
+│   │   │   └── page.tsx                    ← UC_46
+│   │   ├── business/[id]/chat/
+│   │   │   └── page.tsx                    ← UC_47
+│   │   ├── business/[id]/modify/
+│   │   │   └── page.tsx                    ← UC_48
+│   │   ├── business/[id]/validation/
+│   │   │   └── page.tsx                    ← UC_49
+│   │   ├── business/[id]/orchestrator/
+│   │   │   └── page.tsx                    ← UC_50
+│   │
+│   ├── (admin)/
+│   │   ├── layout.tsx
+│   │   └── admin/
+│   │       └── page.tsx                    ← UC_31
+│   │
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── features/
+│   │
+│   │ ════════════════════════════════════════
+│   │  MILESTONE 1 — Auth & Onboarding
+│   │ ════════════════════════════════════════
+│   │
+│   ├── auth/
+│   │   ├── components/
+│   │   │   ├── LoginForm.tsx
+│   │   │   ├── SignupForm.tsx
+│   │   │   ├── ForgotPasswordForm.tsx
+│   │   │   ├── OtpInput.tsx
+│   │   │   ├── ResetPasswordForm.tsx
+│   │   │   ├── PasswordStrength.tsx
+│   │   │   └── SocialLogin.tsx
+│   │   ├── hooks/
+│   │   │   ├── useLogin.ts
+│   │   │   ├── useSignup.ts
+│   │   │   ├── useLogout.ts
+│   │   │   ├── useForgotPassword.ts
+│   │   │   ├── useVerifyOtp.ts
+│   │   │   └── useResetPassword.ts
+│   │   ├── screens/
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── SignupPage.tsx
+│   │   │   ├── ForgotPasswordPage.tsx
+│   │   │   ├── VerifyOtpPage.tsx
+│   │   │   └── ResetPasswordPage.tsx
+│   │   ├── store/
+│   │   │   └── authStore.ts
+│   │   ├── schema/
+│   │   │   ├── loginSchema.ts
+│   │   │   ├── signupSchema.ts
+│   │   │   ├── otpSchema.ts
+│   │   │   └── resetPasswordSchema.ts
+│   │   ├── types/
+│   │   │   └── auth.types.ts
+│   │   └── utils/
+│   │       ├── parseAuthError.ts
+│   │       └── tokenManager.ts
+│   │
+│   ├── access-control/
+│   │   ├── components/
+│   │   │   └── RoleGuard.tsx
+│   │   ├── hooks/
+│   │   │   ├── useRole.ts
+│   │   │   └── usePermission.ts
+│   │   ├── screens/
+│   │   │   └── ForbiddenPage.tsx
+│   │   ├── store/
+│   │   │   └── accessControlStore.ts
+│   │   ├── types/
+│   │   │   └── accessControl.types.ts
+│   │   └── utils/
+│   │       └── hasPermission.ts
+│   │
+│   ├── onboarding/
+│   │   ├── components/
+│   │   │   ├── OnboardingWizard.tsx
+│   │   │   ├── StepInterests.tsx
+│   │   │   ├── StepExperience.tsx
+│   │   │   ├── StepSkills.tsx
+│   │   │   ├── StepBudget.tsx
+│   │   │   ├── StepReview.tsx
+│   │   │   ├── ProgressBar.tsx
+│   │   │   └── GuideTour.tsx
+│   │   ├── hooks/
+│   │   │   ├── useOnboarding.ts
+│   │   │   ├── useSaveAnswers.ts
+│   │   │   └── useGuideTour.ts
+│   │   ├── screens/
+│   │   │   └── OnboardingPage.tsx
+│   │   ├── store/
+│   │   │   └── onboardingStore.ts
+│   │   ├── schema/
+│   │   │   └── onboardingSchema.ts
+│   │   ├── types/
+│   │   │   └── onboarding.types.ts
+│   │   └── utils/
+│   │       └── calculateProgress.ts
+│   │
+│   ├── team/
+│   │   ├── components/
+│   │   │   └── AcceptInvitationForm.tsx
+│   │   ├── hooks/
+│   │   │   ├── useAcceptInvite.ts
+│   │   │   └── useInviteDetails.ts
+│   │   ├── screens/
+│   │   │   └── AcceptInvitationPage.tsx
+│   │   ├── store/
+│   │   │   └── invitationStore.ts
+│   │   ├── schema/
+│   │   │   └── invitationSchema.ts
+│   │   ├── types/
+│   │   │   └── team.types.ts
+│   │   └── utils/
+│   │       └── isInviteExpired.ts
+│   │
+│   ├── session/
+│   │   ├── components/
+│   │   │   ├── TimeoutWarning.tsx
+│   │   │   └── SessionExpiredModal.tsx
+│   │   ├── hooks/
+│   │   │   ├── useSessionTimeout.ts
+│   │   │   └── useActivityDetector.ts
+│   │   ├── screens/
+│   │   │   └── SessionExpiredPage.tsx
+│   │   ├── store/
+│   │   │   └── sessionStore.ts
+│   │   ├── types/
+│   │   │   └── session.types.ts
+│   │   └── utils/
+│   │       └── persistData.ts
+│   │
+│   │ ════════════════════════════════════════
+│   │  MILESTONE 2 — Core Business Logic
+│   │ ════════════════════════════════════════
+│   │
+│   ├── concepts/
+│   │   ├── components/
+│   │   │   ├── ConceptCard.tsx
+│   │   │   ├── StageList.tsx
+│   │   │   └── ConceptDetail.tsx
+│   │   ├── hooks/
+│   │   │   ├── useConcepts.ts
+│   │   │   └── useConceptDetail.ts
+│   │   ├── screens/
+│   │   │   ├── ConceptsPage.tsx
+│   │   │   └── ConceptDetailPage.tsx
+│   │   ├── store/
+│   │   │   └── conceptsStore.ts
+│   │   ├── types/
+│   │   │   └── concepts.types.ts
+│   │   └── utils/
+│   │       └── groupByStage.ts
+│   │
+│   ├── skills-gap/
+│   │   ├── components/
+│   │   │   ├── GapReport.tsx
+│   │   │   ├── SkillMeter.tsx
+│   │   │   └── GapSeverityBadge.tsx
+│   │   ├── hooks/
+│   │   │   └── useSkillsGap.ts
+│   │   ├── screens/
+│   │   │   └── SkillsGapPage.tsx
+│   │   ├── store/
+│   │   │   └── skillsGapStore.ts
+│   │   ├── types/
+│   │   │   └── skillsGap.types.ts
+│   │   └── utils/
+│   │       └── compareSkillsToBenchmark.ts
+│   │
+│   ├── guide/
+│   │   ├── components/
+│   │   │   ├── GuideStep.tsx
+│   │   │   ├── GuideTooltip.tsx
+│   │   │   └── GuideProgress.tsx
+│   │   ├── hooks/
+│   │   │   ├── useGuide.ts
+│   │   │   └── useGuideResume.ts
+│   │   ├── screens/
+│   │   │   └── GuidePage.tsx
+│   │   ├── store/
+│   │   │   └── guideStore.ts
+│   │   ├── types/
+│   │   │   └── guide.types.ts
+│   │   └── utils/
+│   │       └── getGuideSteps.ts
+│   │
+│   ├── team-management/
+│   │   ├── components/
+│   │   │   ├── MemberCard.tsx
+│   │   │   ├── MemberList.tsx
+│   │   │   ├── InviteMemberForm.tsx
+│   │   │   ├── RemoveMemberDialog.tsx
+│   │   │   └── ChangeRoleSelect.tsx
+│   │   ├── hooks/
+│   │   │   ├── useTeamMembers.ts
+│   │   │   ├── useInviteMember.ts
+│   │   │   ├── useRemoveMember.ts
+│   │   │   └── useChangeRole.ts
+│   │   ├── screens/
+│   │   │   └── TeamManagementPage.tsx
+│   │   ├── store/
+│   │   │   └── teamManagementStore.ts
+│   │   ├── schema/
+│   │   │   └── inviteMemberSchema.ts
+│   │   ├── types/
+│   │   │   └── teamManagement.types.ts
+│   │   └── utils/
+│   │       └── canManageTeam.ts
+│   │
+│   ├── profile/
+│   │   ├── components/
+│   │   │   ├── ProfileForm.tsx
+│   │   │   ├── AvatarUpload.tsx
+│   │   │   └── SkillTags.tsx
+│   │   ├── hooks/
+│   │   │   ├── useProfile.ts
+│   │   │   └── useUpdateProfile.ts
+│   │   ├── screens/
+│   │   │   └── ProfilePage.tsx
+│   │   ├── store/
+│   │   │   └── profileStore.ts
+│   │   ├── schema/
+│   │   │   └── profileSchema.ts
+│   │   ├── types/
+│   │   │   └── profile.types.ts
+│   │   └── utils/
+│   │       └── mapProfileToForm.ts
+│   │
+│   ├── notifications/
+│   │   ├── components/
+│   │   │   ├── NotificationList.tsx
+│   │   │   ├── NotificationItem.tsx
+│   │   │   ├── NotificationBadge.tsx
+│   │   │   └── NotificationSettings.tsx
+│   │   ├── hooks/
+│   │   │   ├── useNotifications.ts
+│   │   │   └── useMarkAsRead.ts
+│   │   ├── screens/
+│   │   │   └── NotificationsPage.tsx
+│   │   ├── store/
+│   │   │   └── notificationsStore.ts
+│   │   ├── types/
+│   │   │   └── notifications.types.ts
+│   │   └── utils/
+│   │       └── groupByDate.ts
+│   │
+│   ├── export/
+│   │   ├── components/
+│   │   │   ├── ExportForm.tsx
+│   │   │   └── ExportProgress.tsx
+│   │   ├── hooks/
+│   │   │   └── useExportData.ts
+│   │   ├── screens/
+│   │   │   └── ExportPage.tsx
+│   │   ├── store/
+│   │   │   └── exportStore.ts
+│   │   ├── types/
+│   │   │   └── export.types.ts
+│   │   └── utils/
+│   │       └── formatExportData.ts
+│   │
+│   ├── settings/
+│   │   ├── components/
+│   │   │   ├── SettingsTabs.tsx
+│   │   │   ├── ChangePasswordForm.tsx
+│   │   │   ├── NotificationPrefs.tsx
+│   │   │   ├── PrivacySettings.tsx
+│   │   │   └── AccountActions.tsx
+│   │   ├── hooks/
+│   │   │   ├── useSettings.ts
+│   │   │   ├── useChangePassword.ts
+│   │   │   └── useDeactivateAccount.ts
+│   │   ├── screens/
+│   │   │   └── SettingsPage.tsx
+│   │   ├── store/
+│   │   │   └── settingsStore.ts
+│   │   ├── schema/
+│   │   │   ├── changePasswordSchema.ts
+│   │   │   └── settingsSchema.ts
+│   │   ├── types/
+│   │   │   └── settings.types.ts
+│   │   └── utils/
+│   │       └── mapSettingsToForm.ts
+│   │
+│   │ ════════════════════════════════════════
+│   │  MILESTONE 3 — Idea Discovery & Validation
+│   │ ════════════════════════════════════════
+│   │
+│   ├── ideas/
+│   │   ├── components/
+│   │   │   ├── IdeaCard.tsx
+│   │   │   ├── IdeaGrid.tsx
+│   │   │   ├── IdeaDetail.tsx
+│   │   │   ├── FilterBar.tsx
+│   │   │   ├── BudgetFilter.tsx
+│   │   │   ├── SkillsFilter.tsx
+│   │   │   ├── FeasibilityFilter.tsx
+│   │   │   ├── BestFitRanking.tsx
+│   │   │   ├── ScoreBadge.tsx
+│   │   │   ├── IdeaActions.tsx
+│   │   │   └── CreateIdeaForm.tsx
+│   │   ├── hooks/
+│   │   │   ├── useIdeas.ts
+│   │   │   ├── useIdeaDetail.ts
+│   │   │   ├── useIdeaFilters.ts
+│   │   │   ├── useIdeaScoring.ts
+│   │   │   ├── useCreateIdeaManual.ts
+│   │   │   ├── useCreateIdeaAI.ts
+│   │   │   ├── useArchiveIdea.ts
+│   │   │   └── useUnarchiveIdea.ts
+│   │   ├── screens/
+│   │   │   ├── IdeasPage.tsx
+│   │   │   ├── IdeaDetailPage.tsx
+│   │   │   ├── ArchivedIdeasPage.tsx
+│   │   │   ├── CompareIdeasPage.tsx
+│   │   │   └── CreateIdeaPage.tsx
+│   │   ├── store/
+│   │   │   └── ideasStore.ts
+│   │   ├── schema/
+│   │   │   ├── createIdeaSchema.ts
+│   │   │   └── filterSchema.ts
+│   │   ├── types/
+│   │   │   └── ideas.types.ts
+│   │   └── utils/
+│   │       ├── scoreCalculator.ts
+│   │       └── filterIdeas.ts
+│   │
+│   ├── compare/
+│   │   ├── components/
+│   │   │   ├── CompareMatrix.tsx
+│   │   │   ├── CompareSelector.tsx
+│   │   │   └── WinnerHighlight.tsx
+│   │   ├── hooks/
+│   │   │   └── useCompareIdeas.ts
+│   │   ├── screens/
+│   │   │   └── ComparePage.tsx
+│   │   ├── store/
+│   │   │   └── compareStore.ts
+│   │   ├── types/
+│   │   │   └── compare.types.ts
+│   │   └── utils/
+│   │       └── calculateComparison.ts
+│   │
+│   ├── partner/
+│   │   ├── components/
+│   │   │   ├── PartnerProfileForm.tsx
+│   │   │   ├── PartnerCard.tsx
+│   │   │   ├── MarketplaceTabs.tsx
+│   │   │   └── DocumentUpload.tsx
+│   │   ├── hooks/
+│   │   │   ├── usePartnerProfile.ts
+│   │   │   ├── useUpdatePartner.ts
+│   │   │   └── useMarketplace.ts
+│   │   ├── screens/
+│   │   │   ├── PartnerDashboardPage.tsx
+│   │   │   └── MarketplacePage.tsx
+│   │   ├── store/
+│   │   │   └── partnerStore.ts
+│   │   ├── schema/
+│   │   │   └── partnerProfileSchema.ts
+│   │   ├── types/
+│   │   │   └── partner.types.ts
+│   │   └── utils/
+│   │       └── groupPartnerByType.ts
+│   │
+│   ├── admin/
+│   │   ├── components/
+│   │   │   ├── AdminSidebar.tsx
+│   │   │   ├── PartnerReviewTable.tsx
+│   │   │   ├── UserManagementTable.tsx
+│   │   │   ├── ActivityLogs.tsx
+│   │   │   └── SystemHealthCard.tsx
+│   │   ├── hooks/
+│   │   │   ├── usePendingPartners.ts
+│   │   │   ├── useApprovePartner.ts
+│   │   │   ├── useSuspendUser.ts
+│   │   │   └── useActivityLogs.ts
+│   │   ├── screens/
+│   │   │   └── AdminDashboardPage.tsx
+│   │   ├── store/
+│   │   │   └── adminStore.ts
+│   │   ├── types/
+│   │   │   └── admin.types.ts
+│   │   └── utils/
+│   │       └── formatAdminAction.ts
+│   │
+│   │ ════════════════════════════════════════
+│   │  MILESTONE 4 — Business Agents
+│   │ ════════════════════════════════════════
+│   │
+│   ├── chatbot/
+│   │   ├── components/
+│   │   │   ├── ChatWindow.tsx
+│   │   │   ├── ChatMessage.tsx
+│   │   │   ├── ChatInput.tsx
+│   │   │   ├── IdeaSuggestionCard.tsx
+│   │   │   └── RefinementPrompt.tsx
+│   │   ├── hooks/
+│   │   │   ├── useChat.ts
+│   │   │   └── useIdeaChatbot.ts
+│   │   ├── screens/
+│   │   │   └── ChatbotPage.tsx
+│   │   ├── store/
+│   │   │   └── chatStore.ts
+│   │   ├── types/
+│   │   │   └── chatbot.types.ts
+│   │   └── utils/
+│   │       └── formatChatMessage.ts
+│   │
+│   ├── business/
+│   │   ├── components/
+│   │   │   ├── BusinessHeader.tsx
+│   │   │   ├── FeasibilityScore.tsx
+│   │   │   ├── FounderReadiness.tsx
+│   │   │   ├── SkillGapSummary.tsx
+│   │   │   └── BusinessStatusBadge.tsx
+│   │   ├── hooks/
+│   │   │   ├── useBusiness.ts
+│   │   │   └── useGenerateBusiness.ts
+│   │   ├── screens/
+│   │   │   └── BusinessPage.tsx
+│   │   ├── store/
+│   │   │   └── businessStore.ts
+│   │   ├── types/
+│   │   │   └── business.types.ts
+│   │   └── utils/
+│   │       └── mapBusinessData.ts
+│   │
+│   ├── roadmap/
+│   │   ├── components/
+│   │   │   ├── RoadmapTimeline.tsx
+│   │   │   ├── StageCard.tsx
+│   │   │   ├── StageProgress.tsx
+│   │   │   └── AgentStatusBadge.tsx
+│   │   ├── hooks/
+│   │   │   ├── useRoadmap.ts
+│   │   │   └── useInitiateRoadmap.ts
+│   │   ├── screens/
+│   │   │   └── RoadmapPage.tsx
+│   │   ├── store/
+│   │   │   └── roadmapStore.ts
+│   │   ├── types/
+│   │   │   └── roadmap.types.ts
+│   │   └── utils/
+│   │       └── calculateRoadmapProgress.ts
+│   │
+│   ├── agents/
+│   │   ├── components/
+│   │   │   ├── AgentCard.tsx
+│   │   │   ├── AgentOutputPanel.tsx
+│   │   │   ├── AgentPromptInput.tsx
+│   │   │   ├── AgentProgressStepper.tsx
+│   │   │   ├── ConfidenceMeter.tsx
+│   │   │   └── ValidationReport.tsx
+│   │   ├── hooks/
+│   │   │   ├── useCustomerResearch.ts
+│   │   │   ├── usePersonaBuilder.ts
+│   │   │   ├── useIdeaStrategy.ts
+│   │   │   ├── useMarketSize.ts
+│   │   │   ├── useCompetitorAnalysis.ts
+│   │   │   ├── useFunctionsList.ts
+│   │   │   ├── useUnitEconomics.ts
+│   │   │   ├── useLegalFinance.ts
+│   │   │   ├── useMvpPlanning.ts
+│   │   │   ├── useBranding.ts
+│   │   │   ├── useGoToMarket.ts
+│   │   │   ├── useOperations.ts
+│   │   │   ├── useValidation.ts
+│   │   │   └── useOrchestrator.ts
+│   │   ├── screens/
+│   │   │   ├── CustomerResearchPage.tsx
+│   │   │   ├── PersonaBuilderPage.tsx
+│   │   │   ├── StrategyPage.tsx
+│   │   │   ├── MarketSizePage.tsx
+│   │   │   ├── CompetitorPage.tsx
+│   │   │   ├── FunctionsPage.tsx
+│   │   │   ├── UnitEconomicsPage.tsx
+│   │   │   ├── LegalFinancePage.tsx
+│   │   │   ├── MvpPage.tsx
+│   │   │   ├── BrandingPage.tsx
+│   │   │   ├── GoToMarketPage.tsx
+│   │   │   ├── OperationsPage.tsx
+│   │   │   ├── ValidationPage.tsx
+│   │   │   └── OrchestratorPage.tsx
+│   │   ├── store/
+│   │   │   └── agentsStore.ts
+│   │   ├── schema/
+│   │   │   └── agentInputSchema.ts
+│   │   ├── types/
+│   │   │   └── agents.types.ts
+│   │   └── utils/
+│   │       ├── parseAgentOutput.ts
+│   │       └── calculateConfidence.ts
+│   │
+│   ├── knowledge-chat/
+│   │   ├── components/
+│   │   │   ├── KnowledgeChatWindow.tsx
+│   │   │   ├── KnowledgeMessage.tsx
+│   │   │   └── SourceReference.tsx
+│   │   ├── hooks/
+│   │   │   └── useKnowledgeChat.ts
+│   │   ├── screens/
+│   │   │   └── KnowledgeChatPage.tsx
+│   │   ├── store/
+│   │   │   └── knowledgeChatStore.ts
+│   │   ├── types/
+│   │   │   └── knowledgeChat.types.ts
+│   │   └── utils/
+│   │       └── formatSourceRef.ts
+│   │
+│   ├── idea-modify/
+│   │   ├── components/
+│   │   │   ├── ModifyPromptForm.tsx
+│   │   │   ├── ModifyPreview.tsx
+│   │   │   └── DiffView.tsx
+│   │   ├── hooks/
+│   │   │   └── useModifyIdea.ts
+│   │   ├── screens/
+│   │   │   └── ModifyIdeaPage.tsx
+│   │   ├── store/
+│   │   │   └── ideaModifyStore.ts
+│   │   ├── types/
+│   │   │   └── ideaModify.types.ts
+│   │   └── utils/
+│   │       └── computeDiff.ts
+│   │
+│   ├── orchestrator/
+│   │   ├── components/
+│   │   │   ├── WorkflowStepper.tsx
+│   │   │   ├── AgentDependencyGraph.tsx
+│   │   │   └── RunAllButton.tsx
+│   │   ├── hooks/
+│   │   │   └── useWorkflowOrchestrator.ts
+│   │   ├── screens/
+│   │   │   └── OrchestratorPage.tsx
+│   │   ├── store/
+│   │   │   └── orchestratorStore.ts
+│   │   ├── types/
+│   │   │   └── orchestrator.types.ts
+│   │   └── utils/
+│   │       └── resolveAgentOrder.ts
+│
+├── assets/
+│   ├── imgs/
+│   │   ├── auth/                           ← login/signup illustrations, OTP graphics
+│   │   ├── onboarding/                     ← step illustrations, guide tour images
+│   │   ├── common/                         ← logo, favicon, empty states, avatars
+│   │   └── landing/                        ← section backgrounds, hero images
+│   └── fonts/                              ← Inter, Tajawal, JetBrains Mono
+│
+├── styles/
+│   └── globals.css
+│
+├── components/
+│   ├── ui/
+│   │   ├── button.tsx
+│   │   ├── input.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── toast.tsx
+│   │   ├── select.tsx
+│   │   ├── slider.tsx
+│   │   ├── progress.tsx
+│   │   ├── checkbox.tsx
+│   │   ├── tooltip.tsx
+│   │   ├── tabs.tsx
+│   │   ├── badge.tsx
+│   │   ├── avatar.tsx
+│   │   ├── separator.tsx
+│   │   └── dropdown-menu.tsx
+│   ├── sections/                           ← landing page sections
+│   │   ├── navbar.tsx
+│   │   ├── hero.tsx
+│   │   ├── problems.tsx
+│   │   ├── solutions.tsx
+│   │   ├── why-bizify.tsx
+│   │   ├── how-it-works-new.tsx
+│   │   ├── ai-startup-mentor.tsx
+│   │   ├── pricing.tsx
+│   │   └── footer.tsx
+│   └── shared/                             ← reusable shared components across the app
+│
+├── hooks/
+│   ├── useTheme.ts
+│   └── useDirection.ts
+│
+├── lib/
+│   ├── api.ts
+│   └── queryClient.ts
+│
+├── i18n/
+│   ├── en.json
+│   └── ar.json
+│
+├── types/
+│   └── common.types.ts
+│
+└── utils/
+    ├── cn.ts
+    └── formatters.ts

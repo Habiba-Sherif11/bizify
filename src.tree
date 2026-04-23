@@ -1,0 +1,234 @@
+// WRITE THIS CODE TO GET A TREE VIEW OF THE SRC PROJECT FILE STRUCTURE
+// struct ./src -o src.tree 
+
+
+├── app
+│  ├── (auth)
+│  │  ├── auth-onboarding
+│  │  │  └── page.tsx
+│  │  ├── forgot-password
+│  │  │  └── page.tsx
+│  │  ├── layout.tsx
+│  │  ├── login
+│  │  │  └── page.tsx
+│  │  ├── reset-password
+│  │  │  └── page.tsx
+│  │  ├── signup
+│  │  │  └── page.tsx
+│  │  └── verify-otp
+│  │    └── page.tsx
+│  ├── (main)
+│  │  ├── (nav-bar)
+│  │  │  ├── profile
+│  │  │  │  └── page.tsx
+│  │  │  └── settings
+│  │  ├── ai-chat
+│  │  ├── dashboard
+│  │  │  └── page.tsx
+│  │  ├── forbidden
+│  │  │  └── page.tsx
+│  │  ├── invite
+│  │  │  └── accept
+│  │  │    └── page.tsx
+│  │  ├── layout.tsx
+│  │  ├── marketplace
+│  │  ├── onboarding
+│  │  │  └── page.tsx
+│  │  └── team
+│  ├── layout.tsx
+│  └── page.tsx
+├── assets
+│  ├── fonts
+│  └── imgs
+│    ├── auth
+│    │  └── login.png
+│    ├── common
+│    ├── landing
+│    │  ├── hero-bg.png
+│    │  ├── mock-bg.png
+│    │  ├── section2.png
+│    │  └── section33.png
+│    └── onboarding
+├── components
+│  ├── providers
+│  │  ├── AnimationProvider.tsx
+│  │  ├── providers.tsx
+│  │  ├── ReactQueryProvider.tsx
+│  │  └── ReduxProvider.tsx
+│  ├── sections
+│  │  ├── ai-startup-mentor.tsx
+│  │  ├── footer.tsx
+│  │  ├── hero-mockup.tsx
+│  │  ├── hero.tsx
+│  │  ├── herobg.tsx
+│  │  ├── how-it-works-new.tsx
+│  │  ├── logo.tsx
+│  │  ├── navbar.tsx
+│  │  ├── pricing.tsx
+│  │  ├── problems.tsx
+│  │  ├── process-card.tsx
+│  │  ├── section-with-bg.tsx
+│  │  ├── solutions.tsx
+│  │  └── why-bizify.tsx
+│  ├── shared
+│  └── ui
+│    ├── accordion.tsx
+│    ├── avatar.tsx
+│    ├── button-group.tsx
+│    ├── button.tsx
+│    ├── card.tsx
+│    ├── chart.tsx
+│    ├── checkbox.tsx
+│    ├── combobox.tsx
+│    ├── dropdown-menu.tsx
+│    ├── empty.tsx
+│    ├── field.tsx
+│    ├── hover-card.tsx
+│    ├── input-group.tsx
+│    ├── input.tsx
+│    ├── label.tsx
+│    ├── pagination.tsx
+│    ├── progress.tsx
+│    ├── separator.tsx
+│    ├── skeleton.tsx
+│    ├── spinner.tsx
+│    ├── switch.tsx
+│    ├── table.tsx
+│    ├── tabs.tsx
+│    ├── textarea.tsx
+│    └── toggle.tsx
+├── features
+│  ├── access-control
+│  │  ├── components
+│  │  │  └── RoleGuard.tsx
+│  │  ├── hooks
+│  │  │  ├── usePermission.ts
+│  │  │  └── useRole.ts
+│  │  ├── screens
+│  │  │  └── ForbiddenPage.tsx
+│  │  ├── store
+│  │  │  └── accessControlSlice.ts
+│  │  ├── types
+│  │  │  └── accessControl.types.ts
+│  │  └── utils
+│  │    └── hasPermission.ts
+│  ├── auth
+│  │  ├── components
+│  │  │  ├── auth-onboarding-steps
+│  │  │  │  ├── Step1Signup.tsx
+│  │  │  │  ├── Step2Verify.tsx
+│  │  │  │  └── Step3About.tsx
+│  │  │  ├── AuthOnboardingForm.tsx
+│  │  │  ├── ForgotPasswordForm.tsx
+│  │  │  ├── LoginForm.tsx
+│  │  │  ├── PasswordStrength.tsx
+│  │  │  ├── QuestionnaireForm.tsx
+│  │  │  ├── ResetPasswordForm.tsx
+│  │  │  ├── SignupForm.tsx
+│  │  │  ├── SocialLogin.tsx
+│  │  │  └── SuccessStep.tsx
+│  │  ├── hooks
+│  │  │  ├── useForgotPassword.ts
+│  │  │  ├── useLogin.ts
+│  │  │  ├── useLogout.ts
+│  │  │  ├── useResetPassword.ts
+│  │  │  ├── useSignup.ts
+│  │  │  └── useVerifyOtp.ts
+│  │  ├── schema
+│  │  │  ├── loginSchema.ts
+│  │  │  ├── onboardingSchema.ts
+│  │  │  ├── otpSchema.ts
+│  │  │  ├── resetPasswordSchema.ts
+│  │  │  └── signupSchema.ts
+│  │  ├── screens
+│  │  │  ├── AuthOnboardingPage.tsx
+│  │  │  ├── ForgotPasswordPage.tsx
+│  │  │  ├── LoginPage.tsx
+│  │  │  ├── ResetPasswordPage.tsx
+│  │  │  ├── SignupPage.tsx
+│  │  │  └── VerifyOtpPage.tsx
+│  │  ├── services
+│  │  │  └── authService.ts
+│  │  ├── store
+│  │  │  └── authSlice.ts
+│  │  ├── types
+│  │  │  └── auth.types.ts
+│  │  └── utils
+│  │    ├── parseAuthError.ts
+│  │    ├── signupStorage.ts
+│  │    └── tokenManager.ts
+│  ├── components
+│  ├── onboarding
+│  │  ├── components
+│  │  │  ├── GuideTour.tsx
+│  │  │  ├── OnboardingWizard.tsx
+│  │  │  ├── ProgressBar.tsx
+│  │  │  ├── StepBudget.tsx
+│  │  │  ├── StepExperience.tsx
+│  │  │  ├── StepInterests.tsx
+│  │  │  ├── StepReview.tsx
+│  │  │  └── StepSkills.tsx
+│  │  ├── hooks
+│  │  │  ├── useGuideTour.ts
+│  │  │  ├── useOnboarding.ts
+│  │  │  └── useSaveAnswers.ts
+│  │  ├── schema
+│  │  │  └── onboardingSchema.ts
+│  │  ├── screens
+│  │  │  └── OnboardingPage.tsx
+│  │  ├── store
+│  │  │  └── onboardingSlice.ts
+│  │  ├── types
+│  │  │  └── onboarding.types.ts
+│  │  └── utils
+│  │    └── calculateProgress.ts
+│  ├── session
+│  │  ├── components
+│  │  │  ├── SessionExpiredModal.tsx
+│  │  │  └── TimeoutWarning.tsx
+│  │  ├── hooks
+│  │  │  ├── useActivityDetector.ts
+│  │  │  └── useSessionTimeout.ts
+│  │  ├── store
+│  │  │  └── sessionSlice.ts
+│  │  ├── types
+│  │  │  └── session.types.ts
+│  │  └── utils
+│  │    └── persistData.ts
+│  └── team
+│    ├── components
+│    │  └── AcceptInvitationForm.tsx
+│    ├── hooks
+│    │  ├── useAcceptInvite.ts
+│    │  └── useInviteDetails.ts
+│    ├── schema
+│    │  └── invitationSchema.ts
+│    ├── screens
+│    │  └── AcceptInvitationPage.tsx
+│    ├── store
+│    │  └── invitationSlice.ts
+│    ├── types
+│    │  └── team.types.ts
+│    └── utils
+│      └── isInviteExpired.ts
+├── hooks
+│  ├── useDirection.ts
+│  └── useTheme.ts
+├── i18n
+│  ├── ar.json
+│  └── en.json
+├── lib
+│  ├── api.ts
+│  ├── queryClient.ts
+│  ├── store.ts
+│  └── utils.ts
+├── store
+│  └── index.ts
+├── styles
+│  ├── animations.css
+│  └── globals.css
+├── types
+│  └── common.types.ts
+└── utils
+  ├── cn.ts
+  └── formatters.ts
