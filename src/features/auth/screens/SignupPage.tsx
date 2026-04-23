@@ -20,7 +20,6 @@ const STEPS = [
 export function SignupPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [userEmail, setUserEmail] = useState("");
-  const [accessToken, setAccessToken] = useState("");
   const dispatch = useDispatch();
 
   // ✅ On mount: Check if user was in signup flow and page refreshed
@@ -53,13 +52,12 @@ export function SignupPage() {
   };
 
   // Step 2: OTP verified & user logged in
-  const handleOtpSuccess = (token: string) => {
+  const handleOtpSuccess = (_token: string) => {
     console.log("✅ Step 2: OTP verified, token received");
 
     // ✅ Clear signup context - no longer needed
     signupStorage.clearSignupContext();
 
-    setAccessToken(token);
     setCurrentStep(2); // Move to questionnaire
   };
 
@@ -148,7 +146,7 @@ export function SignupPage() {
         )}
 
         {currentStep === 2 && (
-          <QuestionnaireForm token={accessToken} onFinish={handleFinish} />
+          <QuestionnaireForm onFinish={handleFinish} />
         )}
 
         {currentStep === 3 && <SuccessStep />}
